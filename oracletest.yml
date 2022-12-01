@@ -1,4 +1,5 @@
 - hosts: all
+  become: yes
   tasks:
   - name: Creating an empty file
     file:
