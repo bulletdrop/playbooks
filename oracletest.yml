@@ -3,5 +3,5 @@
   tasks:
   - name: Creating an empty file
     file:
-      path: "/newfile2.txt"
+      path: "/{{filename}}.txt"
       state: touch
