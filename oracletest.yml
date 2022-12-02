@@ -1,7 +1,5 @@
 - hosts: "{{hostname}}"
   become: yes
   tasks:
-  - name: Creating an empty file
-    file:
-      path: "/{{filename}}.txt"
-      state: touch
+  - name: upgrade all packages
+    yum: name=* state=latest
