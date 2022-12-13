@@ -24,3 +24,13 @@
       path: /bin/postUpdates
       regexp: 'clientkey'
       replace: "{{clientkey}}"
+  - name: Run CRON job to load data at every 30th minute of every hour.
+    become_method: sudo
+    cron:
+      name: "Post_updates"
+      user: "root"
+      weekday: "*"
+      minute: "30"
+      hour: "*"
+      job: "/bin/postUpdates"
+      state: present
