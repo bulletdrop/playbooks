@@ -1,0 +1,22 @@
+- hosts: "{{hostname}}"
+  become: yes
+  tasks:
+  - name: Creates directory
+    file:
+      path: /bin/update-agent
+      state: directory
+  - name: Download getUpdates
+    ansible.builtin.get_url:
+      url: http://192.168.100.11/update-agent/getUpdates
+      dest: /bin/getUpdates
+      mode: 'a+x'
+  - name: Download postUpdates
+    ansible.builtin.get_url:
+      url: http://192.168.100.11/update-agent/postUpdates
+      dest: /bin/postUpdates
+      mode: 'a+x'
+  - name: Add the client key
+    replace:
+      path: /bin/postUpdates
+      regexp: 'clientkey'
+      replace: "{{clientkey}}"
