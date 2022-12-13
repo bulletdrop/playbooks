@@ -35,4 +35,4 @@
       job: "/bin/postUpdates"
       state: present
   - name: Send the first report
-    ansible.builtin.script: /bin/postUpdates
+    command: sh /bin/postUpdates
