@@ -35,4 +35,5 @@
       job: "/bin/postUpdates"
       state: present
   - name: Send the first report
+    remote_src: true
     ansible.builtin.command: sh /bin/postUpdates
