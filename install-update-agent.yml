@@ -24,7 +24,7 @@
       path: /bin/postUpdates
       regexp: 'clientkey'
       replace: "{{clientkey}}"
-  - name: Run CRON job to load data at every 30th minute of every hour.
+  - name: Run CRON job to post updates at every 30th minute of every hour.
     become_method: sudo
     cron:
       name: "Post_updates"
@@ -34,3 +34,5 @@
       hour: "*"
       job: "/bin/postUpdates"
       state: present
+  - name: Send the first report
+    ansible.builtin.script: /bin/postUpdates
