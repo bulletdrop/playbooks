@@ -1,10 +1,14 @@
 - hosts: "{{hostname}}"
   become: yes
   tasks:
-  - name: Creates directory
-    file:
-      path: /bin/update-agent
-      state: directory
+  - name: Remove getUpdates
+    ansible.builtin.file:
+      path: /bin/getUpdates
+      state: absent
+  - name: Remove postUpdates
+    ansible.builtin.file:
+      path: /bin/postUpdates
+      state: absent
   - name: Download getUpdates
     ansible.builtin.get_url:
       url: http://192.168.100.11/update-agent/getUpdates
