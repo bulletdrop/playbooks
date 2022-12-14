@@ -3,5 +3,5 @@
   tasks:
   - name: Install the check-mk agent
     ansible.builtin.yum:
-      name: http://192.168.100.15/mysite/check_mk/agents/check-mk-agent-2.1.0p4-1.noarch.rpms
+      name: http://192.168.100.15/mysite/check_mk/agents/check-mk-agent-2.1.0p4-1.noarch.rpm
       state: present
