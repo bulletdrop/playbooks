@@ -8,6 +8,7 @@
       name: http://192.168.100.15/mysite/check_mk/agents/check-mk-agent-2.1.0p4-1.noarch.rpm
       state: present
   - name: Enable TLS
-    command: cmk-agent-ctl register --hostname {{hostname}} --server 192.168.100.15 --site mysite --user automation --password i932i0c4h5Ogyq9FUwoZ
-    responses:
-      'First Question in the prompt' : 'y'
+    expect:
+      command: cmk-agent-ctl register --hostname {{hostname}} --server 192.168.100.15 --site mysite --user automation --password i932i0c4h5Ogyq9FUwoZ
+      responses:
+        'First Question in the prompt' : 'y'
