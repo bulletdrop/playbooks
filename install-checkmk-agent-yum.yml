@@ -3,6 +3,7 @@
   tasks:
   - name: Install the check-mk agent
     ansible.builtin.yum:
-      disable_yum_gpg_check: true
+      disable_gpg_check: true
+      validate_certs: false
       name: http://192.168.100.15/mysite/check_mk/agents/check-mk-agent-2.1.0p4-1.noarch.rpm
       state: present
